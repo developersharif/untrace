@@ -14,6 +14,7 @@
         <p class="text-sm text-secondary mb-2">
           Built with Svelte and deployed on GitHub Pages.
         </p>
+
         <a
           href="https://github.com/developersharif/untrace"
           class="btn btn-secondary text-sm"
