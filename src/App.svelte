@@ -181,8 +181,10 @@
                   </p>
                 {/if}
                 <p class="status-success">✓ All EXIF metadata removed</p>
-                <p class="status-success">✓ AI/C2PA provenance data stripped</p>
-                <p class="status-success">✓ Location data cleared</p>
+                <p class="status-success">✓ GPS location data cleared</p>
+                <p class="status-success">✓ AI content credentials stripped</p>
+                <p class="status-success">✓ C2PA provenance data removed</p>
+                <p class="status-success">✓ Camera & device info cleared</p>
               </div>
 
               <a

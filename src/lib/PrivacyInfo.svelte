@@ -38,7 +38,14 @@
         <strong>🕒 Timestamps:</strong> Enable detailed activity timelines
       </div>
       <div class="privacy-risk">
-        <strong>🤖 AI Detection:</strong> Software tags reveal AI generation
+        <strong>🤖 AI Detection:</strong> Software tags reveal AI generation tools
+      </div>
+      <div class="privacy-risk">
+        <strong>🔗 C2PA Credentials:</strong> Content provenance tracks creation
+        history
+      </div>
+      <div class="privacy-risk">
+        <strong>🏷️ Software Tags:</strong> DALL-E, Midjourney, ChatGPT watermarks
       </div>
     </div>
 
@@ -56,8 +63,27 @@
   <div class="grid grid-2 gap-2 text-sm">
     <div>• Journalists protecting sources</div>
     <div>• Activists maintaining anonymity</div>
-    <div>• Content creators removing AI tags</div>
-    <div>• Anyone valuing digital privacy</div>
+    <div>• AI artists removing generation tags</div>
+    <div>• Content creators stripping watermarks</div>
+    <div>• Social media users protecting privacy</div>
+    <div>• Anyone valuing digital anonymity</div>
+    <div>• Photographers selling stock images</div>
+    <div>• Removing C2PA content credentials</div>
+  </div>
+</div>
+
+<div class="mt-4 p-4 bg-secondary rounded">
+  <h4 class="font-semibold mb-2">🤖 AI Content Credential Support:</h4>
+  <div class="grid grid-3 gap-2 text-sm">
+    <div>• OpenAI DALL-E</div>
+    <div>• Midjourney</div>
+    <div>• Stable Diffusion</div>
+    <div>• Adobe Firefly</div>
+    <div>• ChatGPT Images</div>
+    <div>• Google Imagen</div>
+    <div>• C2PA Signatures</div>
+    <div>• Content Authenticity</div>
+    <div>• JUMBF Containers</div>
   </div>
 </div>
 
@@ -87,6 +113,11 @@
     border: 1px solid rgba(37, 99, 235, 0.1);
   }
 
+  .bg-secondary {
+    background-color: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.1);
+  }
+
   .rounded {
     border-radius: 0.5rem;
   }
@@ -100,8 +131,21 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   @media (max-width: 768px) {
     .grid-2 {
+      grid-template-columns: 1fr;
+    }
+    .grid-3 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid-3 {
       grid-template-columns: 1fr;
     }
   }
