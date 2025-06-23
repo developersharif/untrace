@@ -1,0 +1,23 @@
+<svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simplified version for 16x16 -->
+  <defs>
+    <linearGradient id="logoGradient16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Main circle background -->
+  <circle cx="24" cy="24" r="22" fill="url(#logoGradient16)" />
+
+  <!-- Simplified image icon -->
+  <rect x="12" y="16" width="24" height="16" rx="2" fill="white" opacity="0.9" />
+  
+  <!-- Strike-through line -->
+  <line x1="8" y1="8" x2="40" y2="40" stroke="#EF4444" stroke-width="4" stroke-linecap="round" />
+  <line x1="8" y1="8" x2="40" y2="40" stroke="white" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Shield -->
+  <circle cx="38" cy="18" r="6" fill="#10B981" stroke="white" stroke-width="1.5" />
+  <path d="M36 18 L37 19 L40 16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
