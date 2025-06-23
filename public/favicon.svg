@@ -1,0 +1,32 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Main circle background -->
+  <circle cx="24" cy="24" r="22" fill="url(#logoGradient)" />
+
+  <!-- Image/photo icon base -->
+  <rect x="10" y="14" width="28" height="20" rx="3" fill="white" opacity="0.9" />
+  <rect x="12" y="16" width="24" height="16" rx="2" fill="none" stroke="#1E40AF" stroke-width="1.5" />
+
+  <!-- Mountain/landscape in photo -->
+  <path d="M12 28 L18 22 L22 25 L28 20 L36 26 V30 H12 Z" fill="#E5E7EB" opacity="0.6" />
+
+  <!-- Sun/circle in photo -->
+  <circle cx="30" cy="20" r="2.5" fill="#FCD34D" opacity="0.7" />
+
+  <!-- Strike-through line (indicating removal) -->
+  <line x1="8" y1="8" x2="40" y2="40" stroke="#EF4444" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+  <line x1="8" y1="8" x2="40" y2="40" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+
+  <!-- Shield icon overlay (protection) -->
+  <path d="M38 10 L42 10 C43.1 10 44 10.9 44 12 L44 16 C44 19.3 42.3 22.4 39.5 24.2 L38 25 L36.5 24.2 C33.7 22.4 32 19.3 32 16 L32 12 C32 10.9 32.9 10 34 10 L38 10 Z" fill="#10B981" stroke="white" stroke-width="1" />
+
+  <!-- Checkmark in shield -->
+  <path d="M36 15 L37.5 16.5 L40 14" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
