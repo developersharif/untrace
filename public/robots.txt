@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://untrace.realbrain.cc/sitemap.xml
