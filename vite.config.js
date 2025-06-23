@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [tailwindcss(),svelte()],
-  base: '/untrace/',
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets'
