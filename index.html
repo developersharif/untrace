@@ -1,80 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    
+
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="icon" type="image/svg+xml" sizes="16x16" href="favicon-16x16.svg" />
-    <link rel="icon" type="image/svg+xml" sizes="32x32" href="favicon-32x32.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="16x16"
+      href="favicon-16x16.svg"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="32x32"
+      href="favicon-32x32.svg"
+    />
     <link rel="apple-touch-icon" href="favicon.svg" />
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- SEO Meta Tags -->
-    <title>Untrace - Remove EXIF Metadata & AI Credentials from Images Online | Privacy Tool</title>
-    <meta name="description" content="Free online tool to remove EXIF metadata, GPS location data, AI generation tags, and content credentials from images. Protect your privacy with 100% client-side processing. No uploads, no tracking.">
-    <meta name="keywords" content="EXIF metadata remover, remove GPS from photos, AI content credentials, C2PA remover, image privacy tool, photo metadata cleaner, location data removal, AI signature stripper, DALL-E metadata, ChatGPT image tags, Midjourney metadata, privacy protection, secure image processing">
-    <meta name="author" content="Untrace">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://untrace.realbrain.cc/">
-    
+    <title>
+      Untrace - Remove EXIF Metadata & AI Credentials from Images Online |
+      Privacy Tool
+    </title>
+    <meta
+      name="description"
+      content="Free online tool to remove EXIF metadata, GPS location data, AI generation tags, and content credentials from images. Protect your privacy with 100% client-side processing. No uploads, no tracking."
+    />
+    <meta
+      name="keywords"
+      content="EXIF metadata remover, remove GPS from photos, AI content credentials, C2PA remover, image privacy tool, photo metadata cleaner, location data removal, AI signature stripper, DALL-E metadata, ChatGPT image tags, Midjourney metadata, privacy protection, secure image processing"
+    />
+    <meta name="author" content="Untrace" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://untrace.realbrain.cc/" />
+
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://untrace.realbrain.cc/">
-    <meta property="og:title" content="Untrace - Remove EXIF Metadata & AI Credentials from Images">
-    <meta property="og:description" content="Free privacy tool to remove all metadata, GPS data, and AI generation tags from your images. Works 100% in your browser - no uploads required.">
-    <meta property="og:image" content="https://untrace.realbrain.cc/thumb.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Untrace">
-    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://untrace.realbrain.cc/" />
+    <meta
+      property="og:title"
+      content="Untrace - Remove EXIF Metadata & AI Credentials from Images"
+    />
+    <meta
+      property="og:description"
+      content="Free privacy tool to remove all metadata, GPS data, and AI generation tags from your images. Works 100% in your browser - no uploads required."
+    />
+    <meta
+      property="og:image"
+      content="https://untrace.realbrain.cc/thumb.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Untrace" />
+
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://untrace.realbrain.cc/">
-    <meta property="twitter:title" content="Untrace - Remove EXIF Metadata & AI Credentials from Images">
-    <meta property="twitter:description" content="Free privacy tool to remove all metadata, GPS data, and AI generation tags from your images. Works 100% in your browser.">
-    <meta property="twitter:image" content="https://untrace.realbrain.cc/thumb.jpg">
-    
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://untrace.realbrain.cc/" />
+    <meta
+      property="twitter:title"
+      content="Untrace - Remove EXIF Metadata & AI Credentials from Images"
+    />
+    <meta
+      property="twitter:description"
+      content="Free privacy tool to remove all metadata, GPS data, and AI generation tags from your images. Works 100% in your browser."
+    />
+    <meta
+      property="twitter:image"
+      content="https://untrace.realbrain.cc/thumb.jpg"
+    />
+
     <!-- Additional SEO -->
-    <meta name="theme-color" content="#3b82f6">
-    <meta name="application-name" content="Untrace">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Untrace">
-    <link rel="manifest" href="manifest.json">
-    
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="application-name" content="Untrace" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Untrace" />
+    <link rel="manifest" href="manifest.json" />
+
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Untrace",
-      "description": "Remove EXIF metadata, GPS location data, AI generation tags, and content credentials from images to protect your privacy",
-      "url": "https://untrace.realbrain.cc/",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "creator": {
-        "@type": "Organization",
-        "name": "Untrace"
-      },
-      "featureList": [
-        "Remove GPS location data",
-        "Strip camera information", 
-        "Clean AI generation tags",
-        "Eliminate C2PA content credentials",
-        "Remove timestamps and device info",
-        "100% client-side processing",
-        "No data uploads or tracking",
-        "Support for JPEG, PNG, TIFF, HEIC, AVIF"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Untrace",
+        "description": "Remove EXIF metadata, GPS location data, AI generation tags, and content credentials from images to protect your privacy",
+        "url": "https://untrace.realbrain.cc/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "Untrace"
+        },
+        "featureList": [
+          "Remove GPS location data",
+          "Strip camera information",
+          "Clean AI generation tags",
+          "Eliminate C2PA content credentials",
+          "Remove timestamps and device info",
+          "100% client-side processing",
+          "No data uploads or tracking",
+          "Support for JPEG, PNG, TIFF, HEIC, AVIF"
+        ]
+      }
     </script>
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="developersharif"
+      data-description="Support me on Buy me a coffee!"
+      data-message=""
+      data-color="#26B0A1"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18"
+    ></script>
     <script type="module" crossorigin src="/assets/index-DPgzp4Rc.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-BBnCxAPk.css">
   </head>

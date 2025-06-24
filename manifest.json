@@ -1,7 +1,7 @@
 {
-  "name": "Untrace - EXIF Metadata & AI Content Credential Remover",
+  "name": "Untrace",
   "short_name": "Untrace",
-  "description": "Free online tool to remove EXIF metadata, GPS location data, AI generation tags, and content credentials from images",
+  "description": "EXIF Metadata & AI Content Credential Remover",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
