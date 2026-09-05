@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Untrace">
-  <rect width="48" height="48" rx="10" fill="#3450C8"/>
+  <rect width="48" height="48" fill="#3450C8"/>
   <text x="24" y="24" fill="#FFFFFF" font-family="'IBM Plex Mono', ui-monospace, monospace"
-        font-size="28" font-weight="600" text-anchor="middle" dominant-baseline="central">U</text>
+        font-size="22" font-weight="600" text-anchor="middle" dominant-baseline="central">U</text>
 </svg>

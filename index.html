@@ -1,133 +1,269 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-    <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      sizes="16x16"
-      href="favicon-16x16.svg"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      sizes="32x32"
-      href="favicon-32x32.svg"
-    />
-    <link rel="apple-touch-icon" href="favicon.svg" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO Meta Tags -->
-    <title>
-      Untrace - Remove EXIF Metadata & AI Credentials from Images Online |
-      Privacy Tool
-    </title>
+    <title>Remove content credentials from an image – free online remover | Untrace</title>
     <meta
       name="description"
-      content="Free online tool to remove EXIF metadata, GPS location data, AI generation tags, and content credentials from images. Protect your privacy with 100% client-side processing. No uploads, no tracking."
+      content="Free tool to remove C2PA content credentials, AI generation tags and EXIF metadata from an image. Runs in your browser, so the photo is never uploaded. Works with JPEG, PNG, TIFF, HEIC and AVIF."
     />
-    <meta
-      name="keywords"
-      content="EXIF metadata remover, remove GPS from photos, AI content credentials, C2PA remover, image privacy tool, photo metadata cleaner, location data removal, AI signature stripper, DALL-E metadata, ChatGPT image tags, Midjourney metadata, privacy protection, secure image processing"
-    />
-    <meta name="author" content="Untrace" />
-    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://untrace.realbrain.cc/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://untrace.realbrain.cc/" />
-    <meta
-      property="og:title"
-      content="Untrace - Remove EXIF Metadata & AI Credentials from Images"
+    <!-- Theme: applied before first paint so the page never flashes the wrong
+         surface. Mirrors the logic in src/lib/theme.js. -->
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#080808" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F7F7F9" media="(prefers-color-scheme: light)" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("untrace-theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark";
+          if (theme === "light")
+            document.documentElement.setAttribute("data-theme", "light");
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon-16x16.svg" />
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon-32x32.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- The design system pulls IBM Plex from Google Fonts; starting the
+         handshake here removes it from the stylesheet's critical path. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap"
     />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Untrace" />
+    <meta property="og:url" content="https://untrace.realbrain.cc/" />
+    <meta property="og:title" content="Remove content credentials from an image" />
     <meta
       property="og:description"
-      content="Free privacy tool to remove all metadata, GPS data, and AI generation tags from your images. Works 100% in your browser - no uploads required."
+      content="Free browser tool that strips C2PA content credentials, AI generation tags and EXIF metadata. Nothing is uploaded."
     />
-    <meta
-      property="og:image"
-      content="https://untrace.realbrain.cc/thumb.jpg"
-    />
+    <meta property="og:image" content="https://untrace.realbrain.cc/thumb.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Untrace" />
+    <meta property="og:locale" content="en_US" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://untrace.realbrain.cc/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Remove content credentials from an image" />
     <meta
-      property="twitter:title"
-      content="Untrace - Remove EXIF Metadata & AI Credentials from Images"
+      name="twitter:description"
+      content="Free browser tool that strips C2PA content credentials, AI generation tags and EXIF metadata. Nothing is uploaded."
     />
-    <meta
-      property="twitter:description"
-      content="Free privacy tool to remove all metadata, GPS data, and AI generation tags from your images. Works 100% in your browser."
-    />
-    <meta
-      property="twitter:image"
-      content="https://untrace.realbrain.cc/thumb.jpg"
-    />
+    <meta name="twitter:image" content="https://untrace.realbrain.cc/thumb.jpg" />
 
-    <!-- Additional SEO -->
-    <meta name="theme-color" content="#3b82f6" />
     <meta name="application-name" content="Untrace" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Untrace" />
-    <link rel="manifest" href="manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Untrace",
-        "description": "Remove EXIF metadata, GPS location data, AI generation tags, and content credentials from images to protect your privacy",
-        "url": "https://untrace.realbrain.cc/",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "Any",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "creator": {
-          "@type": "Organization",
-          "name": "Untrace"
-        },
-        "featureList": [
-          "Remove GPS location data",
-          "Strip camera information",
-          "Clean AI generation tags",
-          "Eliminate C2PA content credentials",
-          "Remove timestamps and device info",
-          "100% client-side processing",
-          "No data uploads or tracking",
-          "Support for JPEG, PNG, TIFF, HEIC, AVIF"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://untrace.realbrain.cc/#website",
+            "url": "https://untrace.realbrain.cc/",
+            "name": "Untrace",
+            "alternateName": [
+              "Untrace AI",
+              "Untrace content credentials remover"
+            ],
+            "description": "Remove C2PA content credentials, AI generation tags and EXIF metadata from images in the browser.",
+            "inLanguage": "en",
+            "publisher": {
+              "@id": "https://untrace.realbrain.cc/#org"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://untrace.realbrain.cc/#org",
+            "name": "Untrace",
+            "url": "https://untrace.realbrain.cc/",
+            "logo": "https://untrace.realbrain.cc/favicon.svg",
+            "sameAs": [
+              "https://github.com/developersharif/untrace",
+              "https://realbrain.cc/"
+            ]
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://untrace.realbrain.cc/#app",
+            "name": "Untrace",
+            "url": "https://untrace.realbrain.cc/",
+            "applicationCategory": "UtilitiesApplication",
+            "applicationSubCategory": "Image privacy tool",
+            "operatingSystem": "Any browser",
+            "browserRequirements": "Requires JavaScript and the HTML canvas API",
+            "isAccessibleForFree": true,
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "publisher": {
+              "@id": "https://untrace.realbrain.cc/#org"
+            },
+            "description": "Free browser tool that removes C2PA content credentials, AI generation tags, GPS coordinates and EXIF metadata from images without uploading them.",
+            "featureList": [
+              "Remove C2PA content credentials",
+              "Remove AI generation tags from ChatGPT, DALL-E, Midjourney, Stable Diffusion, Adobe Firefly and Google Imagen",
+              "Remove JUMBF provenance containers",
+              "Remove GPS location data",
+              "Remove camera make, model and settings",
+              "Remove capture timestamps",
+              "Remove XMP, IPTC and Photoshop metadata",
+              "Remove PNG text chunks",
+              "Client-side processing with no upload",
+              "Supports JPEG, PNG, TIFF, HEIC and AVIF"
+            ]
+          },
+          {
+            "@type": "HowTo",
+            "@id": "https://untrace.realbrain.cc/#howto",
+            "name": "How to remove content credentials from an image",
+            "description": "Strip C2PA content credentials and AI generation tags from a photo in three steps, without uploading the file.",
+            "totalTime": "PT1M",
+            "tool": [
+              {
+                "@type": "HowToTool",
+                "name": "Untrace"
+              }
+            ],
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Add the image",
+                "text": "Drop a JPEG, PNG, TIFF, HEIC or AVIF file onto Untrace, choose one from your device, or paste it from the clipboard.",
+                "url": "https://untrace.realbrain.cc/#tool"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Review what is hidden",
+                "text": "Untrace lists every metadata block it finds, including C2PA content credentials, AI generation tags, GPS coordinates, camera details and timestamps.",
+                "url": "https://untrace.realbrain.cc/#tool"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Clean and download",
+                "text": "Choose Clean image. The photo is decoded to pixels and written back out, leaving every metadata container behind, then download the clean copy.",
+                "url": "https://untrace.realbrain.cc/#tool"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://untrace.realbrain.cc/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are content credentials on an image?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Content credentials are a signed record of how an image was made and edited, written into the file by the C2PA standard. They can name the tool that generated the image, list every edit, and identify the account that created it. Platforms read that record to show an “AI info” or “Content credentials” label next to the picture."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I remove content credentials from an image?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Add the image to Untrace, review what it found, then choose Clean image and download the result. Untrace decodes the picture to raw pixels and writes a new file, so the C2PA manifest, the JUMBF container holding it, and every other metadata block are simply not carried over."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does this remove the AI label on LinkedIn?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "LinkedIn shows its AI label when it reads C2PA content credentials in the file you upload. Cleaning the image before you upload removes the data the label is generated from. It does not change a label on a post that is already published — delete that post and upload the clean copy instead."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does it remove the AI tag on Instagram or Facebook?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Meta reads the same C2PA signals plus its own classifiers. Removing the credentials removes the metadata signal, so the automatic “AI info” tag is far less likely to appear. Visual detection is separate and no metadata tool can affect it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is C2PA and JUMBF?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "C2PA is the Coalition for Content Provenance and Authenticity specification that defines the provenance record. JUMBF is the JPEG box format that record is stored in, usually inside an APP11 segment. Untrace scans for both and reports them before cleaning."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is my image uploaded anywhere?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Reading the metadata and writing the clean file both happen in your browser using the File and Canvas APIs. Nothing is sent over the network, there is no account, and Untrace has no server to store an image on."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does cleaning reduce image quality?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Small PNGs are rewritten as PNG with no quality loss. Everything else is re-encoded as JPEG at quality 0.92, which is visually indistinguishable at normal viewing sizes. The tool shows the size change so you can see exactly what happened."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which formats are supported?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "JPEG, PNG, TIFF, HEIC and AVIF. The cleaned file is returned as JPEG, or as PNG when the original was a small PNG."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does it also remove EXIF and GPS data?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. EXIF, GPS, XMP, IPTC, Photoshop blocks, maker notes and embedded thumbnails all go at the same time as the content credentials, because the whole metadata section is dropped rather than edited."
+                }
+              }
+            ]
+          }
         ]
       }
     </script>
-    <script
-      data-name="BMC-Widget"
-      data-cfasync="false"
-      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-      data-id="developersharif"
-      data-description="Support me on Buy me a coffee!"
-      data-message=""
-      data-color="#26B0A1"
-      data-position="Right"
-      data-x_margin="18"
-      data-y_margin="18"
-    ></script>
-    <script type="module" crossorigin src="/assets/index-DPgzp4Rc.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BBnCxAPk.css">
+    <script type="module" crossorigin src="/assets/index-CiUBYwb9.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-xa7qnWfh.css">
   </head>
   <body>
     <div id="app"></div>
+    <noscript>
+      <p style="padding: 24px; font-family: system-ui, sans-serif">
+        Untrace removes C2PA content credentials, AI generation tags and EXIF
+        metadata from images. It reads and rewrites the file inside your
+        browser, so JavaScript has to be enabled for it to work.
+      </p>
+    </noscript>
+
   </body>
 </html>

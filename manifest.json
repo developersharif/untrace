@@ -1,19 +1,29 @@
 {
-  "name": "Untrace",
+  "id": "/",
+  "name": "Untrace — content credentials and metadata remover",
   "short_name": "Untrace",
-  "description": "EXIF Metadata & AI Content Credential Remover",
+  "description": "Remove C2PA content credentials, AI generation tags and EXIF metadata from images, entirely in your browser.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
+  "background_color": "#080808",
+  "theme_color": "#080808",
   "icons": [
     {
-      "src": "vite.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     }
   ],
   "categories": ["productivity", "utilities", "photo"],
   "lang": "en",
+  "dir": "ltr",
   "orientation": "any"
 }
