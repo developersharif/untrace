@@ -42,17 +42,29 @@
             </a>
           </li>
           <li>
-            <a href="https://realbrain.cc/" target="_blank" rel="noopener noreferrer">
-              RealBrain
-            </a>
-          </li>
-          <li>
             <a
               href="https://www.buymeacoffee.com/developersharif"
               target="_blank"
               rel="noopener noreferrer"
             >
               Buy me a coffee
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav aria-label="More from RealBrain">
+        <h2>More from RealBrain</h2>
+        <ul>
+          <li>
+            <a href="https://artimic.com/" target="_blank" rel="noopener noreferrer">
+              Artimic
+            </a>
+            <span class="note">AI design editor</span>
+          </li>
+          <li>
+            <a href="https://realbrain.cc/" target="_blank" rel="noopener noreferrer">
+              RealBrain
             </a>
           </li>
         </ul>
@@ -79,10 +91,16 @@
     margin-bottom: var(--space-6);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 560px) {
     .cols {
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: var(--space-7);
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .cols {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-6);
     }
   }
 
@@ -118,6 +136,15 @@
   ul a:hover {
     color: var(--accent);
     text-decoration: none;
+  }
+
+  /* Sits under a product link that needs a word of context. */
+  .note {
+    display: block;
+    margin-top: var(--space-1);
+    color: var(--text-3);
+    font-size: var(--fs-1);
+    line-height: var(--lh-1);
   }
 
   .base {
