@@ -1,6 +1,6 @@
 {
   "name": "untrace",
-  "description": "Clean your images. Keep your identity.",
+  "description": "Remove C2PA content credentials, AI generation tags and EXIF metadata from images, entirely in the browser.",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -11,18 +11,13 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
-    "@tailwindcss/postcss": "^4.1.10",
-    "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.10",
-    "autoprefixer": "^10.4.21",
     "gh-pages": "^6.1.0",
-    "postcss": "^8.5.6",
     "svelte": "^4.2.0",
-    "tailwindcss": "^4.1.10",
-    "vite": "^5.0.0"
+    "vite": "^5.0.0",
+    "lightningcss": "^1.30.1"
   },
   "dependencies": {
     "exifr": "^7.1.3"
   },
-  "homepage": "https://developersharif.github.io/untrace"
+  "homepage": "https://untrace.realbrain.cc/"
 }

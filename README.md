@@ -1,98 +1,80 @@
-# Untrace - Advanced EXIF Metadata & AI Content Credential Remover
+# Untrace
 
-**Remove all metadata from images. Keep your privacy.**
+**Remove content credentials from an image.**
 
-Clean your photos from location data, AI signatures, C2PA content credentials, and other tracking information. Works 100% in your browser - no uploads, no tracking.
+Untrace strips C2PA content credentials, AI generation tags, GPS coordinates
+and EXIF metadata from a photo. It runs entirely in the browser — the file is
+read and rewritten in the tab, never uploaded.
 
-## Features
+<https://untrace.realbrain.cc/>
 
-**[•] Complete Privacy Protection**
+## What it removes
 
-- Removes GPS location data
-- Strips camera information
-- Cleans AI generation tags (ChatGPT, DALL-E, Midjourney, Stable Diffusion)
-- Eliminates C2PA content credentials and provenance data
-- Removes JUMBF metadata containers
-- Clears Adobe Firefly and Google Imagen signatures
-- Eliminates timestamps and device info
+| | |
+|---|---|
+| C2PA content credentials | Manifests, claims, assertions and signatures from the Content Authenticity Initiative |
+| AI generation tags | ChatGPT, DALL·E, Midjourney, Stable Diffusion, Adobe Firefly, Google Imagen |
+| JUMBF containers | The APP11 and APP2 boxes that carry provenance inside a JPEG |
+| GPS location | Latitude, longitude, altitude, bearing and their timestamp |
+| Camera and device | Make, model, lens, serial numbers, exposure and shooting settings |
+| Timestamps | When the photo was taken, digitised and last modified |
+| XMP and IPTC | Creator names, captions, keywords, copyright, editing history |
+| Comments and thumbnails | User comments, maker notes, embedded previews |
+| PNG text chunks | tEXt, iTXt and zTXt blocks, including generation prompts |
 
-**[✓] Enhanced AI Content Credential Removal**
+Supported input: JPEG, PNG, TIFF, HEIC, AVIF. Output is JPEG, or PNG when the
+original was a small PNG.
 
-- Advanced detection of AI generation markers
-- C2PA (Content Authenticity Initiative) signature removal
-- DALL-E and OpenAI watermark stripping
-- Midjourney metadata cleaning
-- Stable Diffusion tag removal
-- Adobe Content Authenticity removal
-- JUMBF (JPEG Universal Metadata Box Format) cleaning
+## How it works
 
-**[✓] Secure & Private**
+Detection and removal are two separate passes.
 
-- No server uploads - everything happens in your browser
-- No tracking or data collection
-- Supports JPEG, PNG, TIFF, HEIC, AVIF
+**Detection** (`src/lib/metadata.js`) reads the file twice: once through
+[exifr](https://github.com/MikeKovarik/exifr) for structured segments, and once
+as raw bytes to find C2PA strings and JUMBF boxes that exifr does not surface.
+The results are merged and bucketed into named sections, then turned into the
+findings list the review step renders.
 
-**[↕] Easy to Use**
+**Removal** (`src/lib/clean.js`) decodes the image to pixels on a canvas and
+re-encodes it. Nothing carries over, so every metadata container is dropped at
+once rather than deleting known tags one by one and leaving the rest behind.
+The output is then re-read to confirm it is clean; if anything survived, a
+second pass forces JPEG on a white matte.
 
-- Drag & drop interface
-- Instant preview of what data will be removed
-- One-click cleaning
-- Mobile-friendly design
+If the browser cannot decode or re-encode the file, the original bytes are
+returned and the interface says so — it never reports a clean that did not
+happen.
 
-## Quick Start
+## Design
 
-1. **Upload** - Drag your image to the page
-2. **Review** - See what metadata was found
-3. **Clean** - Click "Remove Metadata"
-4. **Download** - Save your privacy-safe image
+The interface follows the
+[RealBrain Design System](https://realbrain.cc/design-system/) v2.0. Tokens are
+vendored at `src/tokens.css`; refresh with:
 
-## For Developers
+```bash
+curl -o src/tokens.css https://realbrain.cc/design-system/tokens.css
+```
+
+`AGENTS.md` carries the rules, the self-check commands, and this repository's
+open token proposals. Read it before touching any CSS.
+
+## Development
 
 ```bash
 npm install
-npm run dev
-
-npm run build
+npm run dev      # vite dev server
+npm run build    # production build to dist/
+npm run preview  # serve the build
 ```
 
-**Built with:** Svelte + Vite + exifr
+Stack: Svelte 4, Vite 5, exifr. No CSS framework — the design system is plain
+CSS.
 
-## Why Use Untrace?
+## Who it is for
 
-Modern images contain hidden data that can compromise your privacy:
-
-- **Location data** reveals where photos were taken
-- **AI signatures** show which tools generated images (DALL-E, Midjourney, ChatGPT, Stable Diffusion)
-- **C2PA content credentials** track the entire creation and editing history
-- **Device info** identifies your camera/phone
-- **Timestamps** reveal when images were created
-- **JUMBF containers** store complex metadata structures
-- **Content Authenticity** markers link images to specific AI tools
-- **Provenance data** creates a digital paper trail
-
-Untrace removes all this data while keeping your images looking exactly the same.
-
-## Supported AI Tools & Formats
-
-**AI Generation Platforms:**
-
-- OpenAI DALL-E & ChatGPT
-- Midjourney
-- Stable Diffusion
-- Adobe Firefly
-- Google Imagen
-- Runway ML
-- NightCafe
-- Artbreeder
-
-**Content Credential Standards:**
-
-- C2PA (Content Provenance and Authenticity)
-- Content Authenticity Initiative (CAI)
-- JUMBF (JPEG Universal Metadata Box Format)
-- Adobe Content Credentials
-- Project Origin signatures
+Journalists protecting sources, activists maintaining anonymity, photographers
+selling stock, and anyone who would rather a photo not carry its own history.
 
 ## License
 
-MIT License - Free for personal and commercial use.
+MIT.

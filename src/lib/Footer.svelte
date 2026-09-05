@@ -1,48 +1,142 @@
-<footer class="mt-12 py-8 border-t border-color text-center">
-  <div class="container">
-    <div class="grid grid-2 gap-8 mb-6">
+<script>
+  import Icon from "./Icon.svelte";
+
+  const year = new Date().getFullYear();
+</script>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
       <div>
-        <h3 class="font-semibold mb-3">About Untrace</h3>
-        <p class="text-sm text-secondary">
-          A privacy-first tool that removes EXIF metadata from images completely
-          in your browser. No servers, no tracking, no data collection.
+        <p class="wordmark">
+          <span class="r-mark" aria-hidden="true">U</span>
+          <span>Untrace</span>
+        </p>
+        <p class="blurb">
+          A privacy tool that removes content credentials, AI generation tags
+          and EXIF metadata from images. Built and run entirely in the browser.
         </p>
       </div>
 
-      <div>
-        <h3 class="font-semibold mb-3">Open Source</h3>
-        <p class="text-sm text-secondary mb-2">
-          Built with Svelte and deployed on GitHub Pages.
-        </p>
+      <nav aria-label="Sections">
+        <h2>On this page</h2>
+        <ul>
+          <li><a href="#tool">Clean an image</a></li>
+          <li><a href="#what-is-removed">What is removed</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#faq">Questions</a></li>
+        </ul>
+      </nav>
 
-        <a
-          href="https://github.com/developersharif/untrace"
-          class="btn btn-secondary text-sm"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-            />
-          </svg>
-          View Source
-        </a>
-      </div>
+      <nav aria-label="Project">
+        <h2>Project</h2>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/developersharif/untrace"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="github" size="sm" />
+              Source on GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://realbrain.cc/" target="_blank" rel="noopener noreferrer">
+              RealBrain
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.buymeacoffee.com/developersharif"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Buy me a coffee
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
 
-    <div class="text-sm text-muted">
-      <p>
-        © 2025 Untrace. Built for privacy advocates, journalists, and digital
-        rights.
+    <hr class="divider" />
+
+    <div class="base">
+      <p>© {year} Untrace. MIT licensed.</p>
+      <p class="claims">
+        <span class="status ok">No uploads</span>
+        <span class="status ok">No accounts</span>
+        <span class="status ok">No analytics</span>
       </p>
-      <p class="mt-1">No analytics • No tracking • No data collection</p>
     </div>
   </div>
 </footer>
 
 <style>
-  .border-t {
-    border-top: 1px solid var(--border-color);
+  .cols {
+    display: grid;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .cols {
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--space-7);
+    }
+  }
+
+  .blurb {
+    margin-top: var(--space-3);
+    max-width: calc(var(--space-9) * 4);
+    color: var(--text-3);
+  }
+
+  h2 {
+    font-size: var(--fs-1);
+    line-height: var(--lh-1);
+    font-weight: 600;
+    color: var(--text-2);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-3);
+  }
+
+  ul {
+    display: grid;
+    gap: var(--space-2);
+    list-style: none;
+  }
+
+  ul a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-2);
+  }
+
+  ul a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .base {
+    display: grid;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+
+  @media (min-width: 560px) {
+    .base {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .claims {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
   }
 </style>
