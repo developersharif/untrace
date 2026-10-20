@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { resolve } from 'node:path'
 
-const guides = ['', 'remove-gps-from-photo', 'what-is-exif-data', 'what-is-c2pa']
+const guides = ['', 'remove-gps-from-photo', 'remove-exif-data-iphone', 'remove-exif-data-android', 'what-is-exif-data', 'what-is-c2pa']
 
 // https://vitejs.dev/config/
 export default defineConfig({

@@ -34,6 +34,8 @@
         <h2>Guides</h2>
         <ul>
           <li><a href="/guides/remove-gps-from-photo/">Remove GPS from a photo</a></li>
+          <li><a href="/guides/remove-exif-data-iphone/">Remove EXIF on iPhone</a></li>
+          <li><a href="/guides/remove-exif-data-android/">Remove EXIF on Android</a></li>
           <li><a href="/guides/what-is-exif-data/">What is EXIF data?</a></li>
           <li><a href="/guides/what-is-c2pa/">What is C2PA?</a></li>
         </ul>
