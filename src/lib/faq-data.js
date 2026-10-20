@@ -41,6 +41,10 @@ export const faqs = [
     a: "Small PNGs are rewritten as PNG with no quality loss. Everything else is re-encoded as JPEG at quality 0.92, which is visually indistinguishable at normal viewing sizes. The tool shows the size change so you can see exactly what happened.",
   },
   {
+    q: "Can I clean several images at once?",
+    a: "Yes. Choose or drop up to 50 images together. Untrace scans them all, shows what each one hides, cleans them one after another in your browser, and lets you download them individually or as one ZIP.",
+  },
+  {
     q: "Which formats are supported?",
     a: "JPEG, PNG, TIFF, HEIC and AVIF. The cleaned file is returned as JPEG, or as PNG when the original was a small PNG.",
   },

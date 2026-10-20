@@ -11,15 +11,33 @@
   let fileInput;
   let depth = 0;
 
-  function offer(file) {
-    if (!file) return;
-    if (!isAccepted(file)) {
+  const MAX_FILES = 50;
+
+  function offer(list) {
+    const incoming = [...(list || [])].filter(Boolean);
+    if (incoming.length === 0) return;
+
+    const accepted = incoming.filter(isAccepted);
+    if (accepted.length === 0) {
+      const type = incoming[0].type;
       dispatch("reject", {
-        message: `Untrace cannot read ${file.type || "that file type"}. Choose a JPEG, PNG, TIFF, HEIC or AVIF image.`,
+        message: `Untrace cannot read ${type || "that file type"}. Choose JPEG, PNG, TIFF, HEIC or AVIF images.`,
       });
       return;
     }
-    dispatch("select", { file });
+
+    const skipped = incoming.length - accepted.length;
+    const capped = accepted.slice(0, MAX_FILES);
+    const over = accepted.length - capped.length;
+    if (skipped > 0 || over > 0) {
+      dispatch("reject", {
+        message:
+          over > 0
+            ? `Only the first ${MAX_FILES} images were added.`
+            : `Skipped ${skipped} file${skipped === 1 ? "" : "s"} Untrace cannot read.`,
+      });
+    }
+    dispatch("select", { files: capped });
   }
 
   function onDrop(event) {
@@ -27,7 +45,7 @@
     depth = 0;
     dragging = false;
     if (busy) return;
-    offer(event.dataTransfer?.files?.[0]);
+    offer(event.dataTransfer?.files);
   }
 
   function onDragEnter(event) {
@@ -44,7 +62,7 @@
   }
 
   function onChange(event) {
-    offer(event.target.files?.[0]);
+    offer(event.target.files);
     // Reset so choosing the same file twice still fires a change event.
     event.target.value = "";
   }
@@ -54,7 +72,7 @@
     const item = [...(event.clipboardData?.items || [])].find((entry) =>
       entry.type.startsWith("image/")
     );
-    if (item) offer(item.getAsFile());
+    if (item) offer([item.getAsFile()]);
   }
 </script>
 
@@ -77,10 +95,10 @@
 >
   <span class="glyph"><Icon name="upload" size="lg" /></span>
   <span class="title">
-    {dragging ? "Drop to scan it" : "Drop an image, or choose a file"}
+    {dragging ? "Drop to scan" : "Drop images, or choose files"}
   </span>
   <span class="hint">
-    Nothing is uploaded. The image is read and rewritten inside this tab.
+    Nothing is uploaded. Add one image or up to 50 at once.
   </span>
   <span class="chip-row formats">
     <span class="chip">JPEG</span>
@@ -98,6 +116,7 @@
 <input
   class="visually-hidden"
   type="file"
+  multiple
   accept={ACCEPTED_EXTENSIONS}
   bind:this={fileInput}
   on:change={onChange}

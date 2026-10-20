@@ -8,6 +8,7 @@
   import ReviewPanel from "./ReviewPanel.svelte";
   import ResultPanel from "./ResultPanel.svelte";
   import Icon from "./Icon.svelte";
+  import Batch from "./Batch.svelte";
 
   const dispatch = createEventDispatcher();
 
@@ -19,6 +20,8 @@
   let metadata = null;
   let previewUrl = null;
   let result = null;
+  /** Set when more than one image is added; Batch owns that flow. */
+  let batchFiles = null;
 
   $: current = stage === "idle" || stage === "scanning" ? 0 : stage === "done" ? 2 : 1;
   $: busy = stage === "scanning" || stage === "cleaning";
@@ -38,7 +41,11 @@
 
   async function onSelect(event) {
     release();
-    file = event.detail.file;
+    if (event.detail.files.length > 1) {
+      batchFiles = event.detail.files;
+      return;
+    }
+    file = event.detail.files[0];
     previewUrl = URL.createObjectURL(file);
     metadata = null;
     stage = "scanning";
@@ -75,6 +82,7 @@
 
   function reset() {
     release();
+    batchFiles = null;
     file = null;
     metadata = null;
     stage = "idle";
@@ -86,6 +94,13 @@
 <section class="card tool" id="tool" aria-labelledby="tool-heading">
   <h2 class="visually-hidden" id="tool-heading">Clean an image</h2>
 
+  {#if batchFiles}
+    <Batch
+      files={batchFiles}
+      on:notify={(e) => dispatch("notify", e.detail)}
+      on:reset={reset}
+    />
+  {:else}
   <ol class="stepper">
     {#each steps as label, index}
       <li class="step" data-state={stepState(index, current)}>
@@ -178,6 +193,7 @@
         </button>
       {/if}
     </div>
+  {/if}
   {/if}
 </section>
 
