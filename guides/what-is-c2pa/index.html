@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>What is C2PA? Content Credentials explained, with their limits | Untrace</title>
+    <meta name="description" content="C2PA Content Credentials are a signed record of how an image was made and edited. Learn what they contain, what they can and cannot prove, and what they mean for privacy." />
+    <link rel="canonical" href="https://untrace.realbrain.cc/guides/what-is-c2pa/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#080808" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F7F7F9" media="(prefers-color-scheme: light)" />
+    <script>(function(){try{var s=localStorage.getItem("untrace-theme");var t=s==="light"||s==="dark"?s:window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";if(t==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}})();</script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Untrace" />
+    <meta property="og:url" content="https://untrace.realbrain.cc/guides/what-is-c2pa/" />
+    <meta property="og:title" content="What is C2PA and how do Content Credentials work?" />
+    <meta property="og:description" content="C2PA Content Credentials are a signed record of how an image was made and edited. Learn what they contain, what they can and cannot prove, and what they mean for privacy." />
+    <meta property="og:image" content="https://untrace.realbrain.cc/thumb.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "What is C2PA and how do Content Credentials work?",
+      "description": "C2PA Content Credentials are a signed record of how an image was made and edited. Learn what they contain, what they can and cannot prove, and what they mean for privacy.",
+      "datePublished": "2026-10-20",
+      "dateModified": "2026-10-20",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://untrace.realbrain.cc/guides/what-is-c2pa/",
+      "image": "https://untrace.realbrain.cc/thumb.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Untrace",
+        "url": "https://untrace.realbrain.cc/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Untrace",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://untrace.realbrain.cc/logo-512.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Untrace",
+          "item": "https://untrace.realbrain.cc/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://untrace.realbrain.cc/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What is C2PA and how do Content Credentials work?",
+          "item": "https://untrace.realbrain.cc/guides/what-is-c2pa/"
+        }
+      ]
+    }
+  ]
+}</script>
+    <script type="module" crossorigin src="/assets/app-BUbn4DI-.js"></script>
+    <script type="module" crossorigin src="/assets/guide-qyo1EQtt.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/app-FcQ11sY_.css">
+    <link rel="stylesheet" crossorigin href="/assets/guide-C4yQAVhU.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap inner">
+        <a class="wordmark" href="/" aria-label="Untrace home"><span class="r-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M15 4.5H8A3.5 3.5 0 0 0 4.5 8v8A3.5 3.5 0 0 0 8 19.5h7"/><path d="M18.5 4.5v.01M18.5 9v.01M18.5 14v.01M18.5 19v.01" stroke-width="2.4" opacity="0.55"/><path d="M21 4.5v.01M21 9v.01" stroke-width="2" opacity="0.28"/><path d="M8 15.5 11 12l2 2.2 1.5-1.7"/></svg></span><span>Untrace</span></a>
+        <nav class="actions" aria-label="Site"><a class="btn btn-ghost" href="/guides/">Guides</a></nav>
+      </div>
+    </header>
+    <main class="guide">
+      <div class="wrap">
+        <ol class="crumbs"><li><a href="/">Untrace</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">What is C2PA and how do Content Credentials work?</li></ol>
+        <article>
+          <h1>What is C2PA and how do Content Credentials work?</h1>
+          <p class="lead">C2PA is an open standard from the Coalition for Content Provenance and Authenticity. It lets software attach a cryptographically signed record to an image describing where it came from and how it was changed.</p>
+          <p class="meta">Updated 2026-10-20 · Written by the Untrace team</p>
+          
+<h2>What is inside a C2PA manifest?</h2>
+<p>The record, called a manifest, can list the tool that created or edited the file, the actions taken, when they happened and who signed it. In a JPEG it is stored in JUMBF boxes inside an APP11 segment. Cameras, editing apps and some AI image generators write these manifests, and some platforms read them to show a Content Credentials or AI info label.</p>
+<h2>What can it prove?</h2>
+<p>A valid manifest shows that a signer vouches for the recorded history and that the file has not been altered since signing. It does not prove the picture is true, and a missing manifest does not prove the picture is fake or real.</p>
+<h2>Why does it often disappear?</h2>
+<p>The manifest lives in the file, not in the pixels. Taking a screenshot, converting the format or re-saving through many apps drops it. Some platforms remove it on upload, others keep or read it. Researchers are pairing metadata with invisible watermarks and fingerprints so provenance can survive, but support is uneven.</p>
+<h2>What does it mean for your privacy?</h2>
+<p>Credentials can name your software, your account or organisation, and your editing steps, and that record goes wherever the file goes. If you want to share a picture without that history, you can <a href="/#tool">scan and clean it in Untrace</a> first, with nothing uploaded.</p>
+<div class="callout"><p><strong>Use it responsibly.</strong> Removing credentials is a privacy choice, not a licence to mislead. If you publish AI-generated or heavily edited work where disclosure is expected, such as news, contests or advertising, disclose it yourself. Pixel-level detectors and invisible watermarks are not affected by metadata removal.</p></div>
+<p>Related: <a href="/guides/what-is-exif-data/">What is EXIF data?</a></p>
+<div class="cta"><p><strong>See what your own photo is hiding.</strong> Untrace lists every metadata block, then removes it, all inside your browser.</p><a class="btn btn-primary" href="/#tool">Scan a photo</a></div>
+          <h2>Common questions</h2>
+          <h3>Is C2PA the same as EXIF?</h3><p>No. EXIF records camera and location details. C2PA records a signed history of creation and edits. Untrace reads and removes both.</p><h3>Can C2PA be forged?</h3><p>The signature protects the manifest from tampering, but anyone can create a manifest with their own certificate, so trust depends on who signed it.</p>
+          <nav class="related" aria-label="Related guides"><h2>Keep reading</h2><ul><li><a href="/guides/remove-gps-from-photo/">How to remove GPS location from a photo</a></li><li><a href="/guides/remove-exif-data-iphone/">How to remove EXIF data from photos on iPhone</a></li><li><a href="/guides/remove-exif-data-android/">How to remove EXIF and location data from photos on Android</a></li><li><a href="/guides/remove-exif-data-windows-mac/">How to remove EXIF data from photos on Windows and Mac</a></li><li><a href="/guides/how-to-view-exif-data/">How to view the EXIF data of a photo</a></li><li><a href="/guides/do-social-media-sites-remove-exif-data/">Do social media sites remove EXIF data from photos?</a></li><li><a href="/guides/photo-metadata-privacy-checklist/">Photo metadata privacy checklist</a></li><li><a href="/guides/what-is-exif-data/">What is EXIF data?</a></li></ul></nav>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>
