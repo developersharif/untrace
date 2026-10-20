@@ -8,6 +8,8 @@
   import Faq from "./lib/Faq.svelte";
   import Footer from "./lib/Footer.svelte";
   import Toast from "./lib/Toast.svelte";
+  import HeroDemo from "./lib/HeroDemo.svelte";
+  import Trust from "./lib/Trust.svelte";
 
   let toasts = [];
   let nextId = 0;
@@ -44,20 +46,25 @@
 
 <main>
   <div class="wrap">
-    <section class="lede">
-      <p class="eyebrow">C2PA · AI credentials · EXIF</p>
-      <h1>Remove content credentials from an image</h1>
-      <p>
-        Untrace strips C2PA content credentials, AI generation tags, GPS
-        coordinates and EXIF metadata from a photo — free, and without the file
-        ever leaving your device.
-      </p>
-      <div class="chip-row">
-        <span class="chip">Free</span>
-        <span class="chip">No sign-in</span>
-        <span class="chip">Open source</span>
-      </div>
-    </section>
+    <div class="intro">
+      <section class="lede">
+        <p class="eyebrow">EXIF · GPS · C2PA</p>
+        <h1>Remove hidden metadata and content credentials from a photo</h1>
+        <p>
+          Every photo can carry your location, your device and a signed record
+          of how it was made. Untrace shows you what is hidden and removes it —
+          free, and without the file ever leaving your device.
+        </p>
+        <div class="chip-row">
+          <span class="chip">Free</span>
+          <span class="chip">No upload</span>
+          <span class="chip">No sign-in</span>
+          <span class="chip">Open source</span>
+        </div>
+        <a class="btn btn-secondary" href="#tool">Clean a photo</a>
+      </section>
+      <HeroDemo />
+    </div>
 
     <Tool on:notify={notify} />
 
@@ -73,6 +80,7 @@
     <div class="stack sections">
       <Removals />
       <HowItWorks />
+      <Trust />
       <Faq />
     </div>
   </div>
@@ -85,6 +93,19 @@
 <style>
   main {
     padding-bottom: var(--space-8);
+  }
+
+  .intro {
+    display: grid;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .intro {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: var(--space-7);
+    }
   }
 
   .assurances {

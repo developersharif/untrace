@@ -1,6 +1,7 @@
 /**
- * FAQ content. Kept in one place because the same questions and answers are
- * mirrored as FAQPage structured data in index.html — edit both together.
+ * FAQ content, rendered on the page. Google no longer shows FAQ rich results
+ * for sites like this one, so there is no FAQPage structured data to keep in
+ * sync — the visible text is the single source.
  */
 export const faqs = [
   {
@@ -12,16 +13,24 @@ export const faqs = [
     a: "Add the image to Untrace, review what it found, then choose Clean image and download the result. Untrace decodes the picture to raw pixels and writes a new file, so the C2PA manifest, the JUMBF container holding it, and every other metadata block are simply not carried over.",
   },
   {
-    q: "Does this remove the AI label on LinkedIn?",
-    a: "LinkedIn shows its AI label when it reads C2PA content credentials in the file you upload. Cleaning the image before you upload removes the data the label is generated from. It does not change a label on a post that is already published — delete that post and upload the clean copy instead.",
+    q: "Why would I remove content credentials?",
+    a: "For privacy. Credentials can name the software you use, your account and the steps of your edit, and that record travels with the file to everyone who receives it. Removing it is the same kind of choice as removing GPS coordinates before you share a photo.",
   },
   {
-    q: "Does it remove the AI tag on Instagram or Facebook?",
-    a: "Meta reads the same C2PA signals plus its own classifiers. Removing the credentials removes the metadata signal, so the automatic “AI info” tag is far less likely to appear. Visual detection is separate and no metadata tool can affect it.",
+    q: "Is it okay to remove them from AI-generated images?",
+    a: "Removing metadata is legal and common, but do not use it to pass AI-generated work off as a real photograph where disclosure is expected or required. Many platforms, publishers, contests and some laws ask you to disclose AI use, and that duty does not depend on whether a file carries a tag.",
+  },
+  {
+    q: "Will platforms still detect AI images after cleaning?",
+    a: "Possibly. Untrace removes metadata only. Platforms also run visual classifiers, and some generators embed invisible watermarks in the pixels themselves. None of that is touched, and Untrace does not claim otherwise.",
   },
   {
     q: "What is C2PA and JUMBF?",
     a: "C2PA is the Coalition for Content Provenance and Authenticity specification that defines the provenance record. JUMBF is the JPEG box format that record is stored in, usually inside an APP11 segment. Untrace scans for both and reports them before cleaning.",
+  },
+  {
+    q: "How do I know my image is not uploaded?",
+    a: "Open your browser's developer tools, choose the Network tab and clean an image. No request carries the file. The code is open source under the MIT licence, so you can also read exactly what it does.",
   },
   {
     q: "Is my image uploaded anywhere?",

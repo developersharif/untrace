@@ -2,8 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://untrace.realbrain.cc/</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-20</lastmod>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://untrace.realbrain.cc/guides/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://untrace.realbrain.cc/guides/remove-gps-from-photo/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://untrace.realbrain.cc/guides/what-is-exif-data/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://untrace.realbrain.cc/guides/what-is-c2pa/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>

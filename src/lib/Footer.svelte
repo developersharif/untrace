@@ -1,5 +1,6 @@
 <script>
   import Icon from "./Icon.svelte";
+  import Logo from "./Logo.svelte";
 
   const year = new Date().getFullYear();
 </script>
@@ -9,7 +10,7 @@
     <div class="cols">
       <div>
         <p class="wordmark">
-          <span class="r-mark" aria-hidden="true">U</span>
+          <Logo />
           <span>Untrace</span>
         </p>
         <p class="blurb">
@@ -24,7 +25,17 @@
           <li><a href="#tool">Clean an image</a></li>
           <li><a href="#what-is-removed">What is removed</a></li>
           <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#trust">Verify it yourself</a></li>
           <li><a href="#faq">Questions</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Guides">
+        <h2>Guides</h2>
+        <ul>
+          <li><a href="/guides/remove-gps-from-photo/">Remove GPS from a photo</a></li>
+          <li><a href="/guides/what-is-exif-data/">What is EXIF data?</a></li>
+          <li><a href="/guides/what-is-c2pa/">What is C2PA?</a></li>
         </ul>
       </nav>
 
@@ -99,7 +110,7 @@
 
   @media (min-width: 900px) {
     .cols {
-      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
       gap: var(--space-6);
     }
   }

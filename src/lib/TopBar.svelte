@@ -1,16 +1,18 @@
 <script>
   import ThemeToggle from "./ThemeToggle.svelte";
   import Icon from "./Icon.svelte";
+  import Logo from "./Logo.svelte";
 </script>
 
 <header class="topbar">
   <div class="wrap inner">
     <a class="wordmark" href="/" aria-label="Untrace home">
-      <span class="r-mark" aria-hidden="true">U</span>
+      <Logo />
       <span>Untrace</span>
     </a>
 
     <nav class="actions" aria-label="Site">
+      <a class="btn btn-ghost guides" href="/guides/">Guides</a>
       <a
         class="btn btn-ghost repo"
         href="https://github.com/developersharif/untrace"
@@ -38,6 +40,15 @@
   }
 
   .repo:hover {
+    text-decoration: none;
+  }
+
+  .guides {
+    height: var(--space-8);
+    padding-inline: var(--space-3);
+  }
+
+  .guides:hover {
     text-decoration: none;
   }
 
